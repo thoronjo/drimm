@@ -24,23 +24,36 @@ export default function VideoCard({
   };
 
   return (
-    <Link href={`/watch/${id}`}>
-      <div className="group relative cursor-pointer transition-transform duration-200 hover:scale-105">
+    <Link 
+      href={`/watch/${id}`}
+      className="focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-md"
+      aria-label={`Watch ${title}`}
+    >
+      <article className="group relative cursor-pointer transition-transform duration-200 hover:scale-105">
         {/* Thumbnail */}
         <div className="relative aspect-video overflow-hidden rounded-md bg-gray-800">
-          <img 
+          <Image 
             src={thumbnail}
-            alt={title}
-            className="h-full w-full object-cover"
+            alt={`Thumbnail for ${title}`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
+            className="object-cover"
+            priority={false}
           />
           
           {/* Duration badge */}
-          <div className="absolute bottom-2 right-2 rounded bg-black/80 px-2 py-1 text-xs text-white">
+          <div 
+            className="absolute bottom-2 right-2 rounded bg-black/80 px-2 py-1 text-xs text-white"
+            aria-label={`Duration: ${formatDuration(duration)}`}
+          >
             {formatDuration(duration)}
           </div>
           
           {/* AI Model badge */}
-          <div className="absolute top-2 right-2 rounded bg-purple-600/90 px-2 py-1 text-xs font-semibold text-white">
+          <div 
+            className="absolute top-2 right-2 rounded bg-purple-600/90 px-2 py-1 text-xs font-semibold text-white"
+            aria-label={`Created with ${aiModel}`}
+          >
             {aiModel}
           </div>
         </div>
@@ -54,13 +67,13 @@ export default function VideoCard({
             <span>{region}</span>
             {views && (
               <>
-                <span>•</span>
+                <span aria-hidden="true">•</span>
                 <span>{formatViews(views)}</span>
               </>
             )}
           </div>
         </div>
-      </div>
+      </article>
     </Link>
   );
 }
