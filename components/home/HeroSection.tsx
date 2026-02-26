@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function HeroSection() {
   return (
@@ -22,18 +23,20 @@ export default function HeroSection() {
           From ancient kingdoms to distant galaxies.
         </p>
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
-          <button 
-            className="rounded bg-white px-6 py-2.5 font-semibold text-black transition hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black md:px-8 md:py-3"
+          <Link
+            href="/browse/trending"
+            className="rounded bg-white px-6 py-2.5 font-semibold text-black text-center transition hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black md:px-8 md:py-3"
             aria-label="Explore stories"
           >
             Explore Stories
-          </button>
-          <button 
-            className="rounded bg-purple-600 px-6 py-2.5 font-semibold text-white transition hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black md:px-8 md:py-3"
+          </Link>
+          <Link
+            href="/upload"
+            className="rounded bg-purple-600 px-6 py-2.5 font-semibold text-white text-center transition hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black md:px-8 md:py-3"
             aria-label="Upload your story"
           >
             Upload Your Story
-          </button>
+          </Link>
         </div>
       </div>
     </section>
