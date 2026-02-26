@@ -9,6 +9,7 @@ export default function HeroSection() {
         alt="Hero background showcasing AI stories from around the world"
         fill
         priority
+        unoptimized
         className="object-cover"
       />
       
