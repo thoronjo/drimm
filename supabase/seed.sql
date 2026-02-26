@@ -1,0 +1,117 @@
+-- Seed data for DRIMM
+-- Run this after schema.sql to populate initial videos
+
+-- Insert sample videos (using your existing dummy data)
+INSERT INTO videos (title, description, thumbnail, video_url, ai_model, region, country, tags, category, duration, views, upload_date) VALUES
+  (
+    'Anansi and the Box of Stories',
+    'The legendary spider trickster acquires all the world''s stories',
+    'https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=400&h=225&fit=crop',
+    'https://test.mp4',
+    'Sora',
+    'West Africa',
+    'Ghana',
+    ARRAY['folklore', 'animation', 'trickster'],
+    'African Stories',
+    180,
+    1250,
+    '2026-02-20'
+  ),
+  (
+    'The Kingdom of Axum',
+    'Ancient Ethiopian empire in the age of trade and power',
+    'https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=400&h=225&fit=crop',
+    'https://test.mp4',
+    'Runway',
+    'East Africa',
+    'Ethiopia',
+    ARRAY['history', 'empire', 'ancient'],
+    'African Stories',
+    240,
+    980,
+    '2026-02-19'
+  ),
+  (
+    'Lagos 2050',
+    'Afrofuturistic vision of Nigeria''s megacity',
+    'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400&h=225&fit=crop',
+    'https://test.mp4',
+    'Sora',
+    'West Africa',
+    'Nigeria',
+    ARRAY['afrofuturism', 'sci-fi', 'urban'],
+    'Sci-Fi',
+    200,
+    2100,
+    '2026-02-22'
+  ),
+  (
+    'Neon Tokyo 2099',
+    'Cyberpunk metropolis in the age of AI',
+    'https://images.unsplash.com/photo-1542051841857-5f90071e7989?w=400&h=225&fit=crop',
+    'https://test.mp4',
+    'Runway',
+    'Asia',
+    'Japan',
+    ARRAY['cyberpunk', 'sci-fi', 'urban'],
+    'Sci-Fi',
+    190,
+    3400,
+    '2026-02-23'
+  ),
+  (
+    'Norse Ragnarok Reimagined',
+    'The end of days told through AI',
+    'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=225&fit=crop',
+    'https://test.mp4',
+    'Pika',
+    'Europe',
+    'Scandinavia',
+    ARRAY['mythology', 'epic', 'norse'],
+    'Mythology',
+    300,
+    1800,
+    '2026-02-21'
+  ),
+  (
+    'Amazon Guardians',
+    'Indigenous protectors in a mystical rainforest',
+    'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=400&h=225&fit=crop',
+    'https://test.mp4',
+    'Sora',
+    'South America',
+    'Brazil',
+    ARRAY['nature', 'indigenous', 'fantasy'],
+    'Nature',
+    220,
+    1450,
+    '2026-02-20'
+  ),
+  (
+    'Atlantis Rising',
+    'The lost city emerges from the depths',
+    'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=225&fit=crop',
+    'https://test.mp4',
+    'Runway',
+    'Global',
+    'Mythical',
+    ARRAY['mythology', 'underwater', 'ancient'],
+    'Mythology',
+    280,
+    2600,
+    '2026-02-18'
+  ),
+  (
+    'Silk Road Odyssey',
+    'Ancient trade route brought to life',
+    'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=225&fit=crop',
+    'https://test.mp4',
+    'Sora',
+    'Asia',
+    'China',
+    ARRAY['history', 'trade', 'ancient'],
+    'History',
+    250,
+    1900,
+    '2026-02-17'
+  );
