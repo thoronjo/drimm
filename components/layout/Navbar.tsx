@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search } from 'lucide-react';
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -44,7 +45,7 @@ export default function Navbar() {
         </form>
 
         {/* Navigation Links */}
-        <div className="flex items-center gap-3 md:gap-8" role="menubar">
+        <div className="flex items-center gap-3 md:gap-6" role="menubar">
           <Link 
             href="/" 
             className="hidden text-gray-300 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded md:block"
@@ -83,13 +84,41 @@ export default function Navbar() {
             <Search className="h-5 w-5" />
           </Link>
 
-          {/* Upload Button */}
-          <button 
-            className="rounded bg-purple-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-purple-700 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black md:px-4 md:py-2 md:text-sm"
-            aria-label="Upload your video"
-          >
-            Upload
-          </button>
+          {/* Auth Buttons */}
+          <SignedOut>
+            <Link
+              href="/sign-in"
+              className="text-sm text-gray-300 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-purple-500 rounded"
+            >
+              Sign In
+            </Link>
+            <Link
+              href="/sign-up"
+              className="rounded bg-purple-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-purple-700 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black md:px-4 md:py-2 md:text-sm"
+            >
+              Sign Up
+            </Link>
+          </SignedOut>
+
+          <SignedIn>
+            {/* Upload Button - Only for signed in users */}
+            <Link
+              href="/upload"
+              className="rounded bg-purple-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-purple-700 transition focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-black md:px-4 md:py-2 md:text-sm"
+            >
+              Upload
+            </Link>
+            
+            {/* User Button */}
+            <UserButton 
+              appearance={{
+                elements: {
+                  avatarBox: "h-8 w-8 md:h-10 md:w-10"
+                }
+              }}
+              afterSignOutUrl="/"
+            />
+          </SignedIn>
         </div>
       </div>
     </nav>

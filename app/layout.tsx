@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Analytics from "@/components/Analytics";
+import { ClerkProvider } from '@clerk/nextjs';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -62,20 +63,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#000000" />
-      </head>
-      <body className={inter.className}>
-        <Analytics />
-        <Navbar />
-        <div className="pt-16"> {/* Offset for fixed navbar */}
-          {children}
-        </div>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <head>
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+          <link rel="manifest" href="/manifest.json" />
+          <meta name="theme-color" content="#000000" />
+        </head>
+        <body className={inter.className}>
+          <Analytics />
+          <Navbar />
+          <div className="pt-16"> {/* Offset for fixed navbar */}
+            {children}
+          </div>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
