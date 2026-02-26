@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import Analytics from "@/components/Analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -69,6 +70,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" />
       </head>
       <body className={inter.className}>
+        <Analytics />
         <Navbar />
         <div className="pt-16"> {/* Offset for fixed navbar */}
           {children}
